@@ -1,0 +1,1 @@
+System.register(["./index-legacy-a1d733aa.js"],(function(t,e){"use strict";var n;return{setters:[function(t){n=t.r}],execute:function(){t("P",{send:function(t,e){return n._post("/shop/plus.market.article/index",t,e)},shipping:function(t,e){return n._post("/shop/plus.market.article/index",t,e)},getList:function(t,e){return n._post("/shop/plus.market.article/index",t,e)}})}}}));

@@ -1,0 +1,1 @@
+import{ah as t}from"./index-CCr7jDqf.js";function o(r){return t({url:"/user.order/lists",method:"get",params:r})}function u(r){return t({url:"/order.order/getBuyList",method:"post",data:r})}function d(r){return t({url:"/order.order/buyList",method:"post",data:r})}function a(r){return t({url:"/user.order/detail",method:"get",params:{order_id:r}})}export{a,d as b,o as c,u as g};

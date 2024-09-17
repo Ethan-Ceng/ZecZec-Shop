@@ -1,0 +1,1 @@
+import{r as t}from"./index-5ae5860a.js";let o={getData:(o,r)=>t._post("/shop/plus.lottery/getLottery",o,r),EditLottery:(o,r)=>t._post("/shop/plus.lottery/setting",o,r),recordList:(o,r)=>t._post("/shop/plus.lottery/record",o,r),recordList:(o,r)=>t._post("/shop/plus.lottery/record",o,r),getAward:(o,r)=>t._post("/shop/plus.lottery/award",o,r)};export{o as L};

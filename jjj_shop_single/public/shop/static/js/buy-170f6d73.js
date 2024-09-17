@@ -1,0 +1,1 @@
+import{r as t}from"./index-5ae5860a.js";let s={saveBuy:(s,i)=>t._post("/shop/plus.buyactivity/add",s,i),detailBuy:(s,i)=>t._get("/shop/plus.buyactivity/edit",s,i),editBuy:(s,i)=>t._post("/shop/plus.buyactivity/edit",s,i),BuyList:(s,i)=>t._post("/shop/plus.buyactivity/index",s,i),delBuy:(s,i)=>t._post("/shop/plus.buyactivity/delete",s,i)};export{s as B};

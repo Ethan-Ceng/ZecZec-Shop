@@ -1,0 +1,12 @@
+<?php
+declare (strict_types = 1);
+
+namespace {%app%}\{%layer%};
+
+class Index{%suffix%}
+{
+    public function index()
+    {
+        return '您好！這是一個[{%name%}]示例應用';
+    }
+}

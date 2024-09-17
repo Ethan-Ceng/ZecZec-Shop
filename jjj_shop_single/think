@@ -1,0 +1,10 @@
+#!/usr/bin/env php
+<?php
+namespace think;
+
+// 命令列入口檔案
+// 載入基礎檔案
+require __DIR__ . '/vendor/autoload.php';
+
+// 應用初始化
+(new App())->console->run();

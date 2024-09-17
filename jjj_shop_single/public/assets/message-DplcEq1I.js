@@ -1,0 +1,1 @@
+import{ah as s}from"./index-CCr7jDqf.js";function t(){return s({url:"/message.Message/lists",method:"get"})}function g(e){return s({url:"/message.Message/sendMessage",method:"post",data:e})}function o(e){return s({url:"/message.Message/getMessageBoxDetail",method:"get",params:{message_box_id:e}})}export{o as a,t as g,g as s};

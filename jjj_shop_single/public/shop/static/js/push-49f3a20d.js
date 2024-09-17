@@ -1,0 +1,1 @@
+import{r as s}from"./index-5ae5860a.js";let e={send:(e,t)=>s._post("/shop/plus.market.article/index",e,t),shipping:(e,t)=>s._post("/shop/plus.market.article/index",e,t),getList:(e,t)=>s._post("/shop/plus.market.article/index",e,t)};export{e as P};

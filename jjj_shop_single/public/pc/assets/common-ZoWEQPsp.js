@@ -1,0 +1,1 @@
+import{aq as t}from"./index-BWcYl31F.js";function o(){return t({url:"/settings/getRegion",method:"get"})}function r(e){return t({url:"/file.upload/image",method:"post",data:e,headers:{"Content-Type":"multipart/form-data",uploadImg:!0}})}export{o as g,r as u};
