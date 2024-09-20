@@ -3,7 +3,7 @@ import axios from "axios";
 // 获取配置
 export function getSite() {
     return axios({
-        url: "/index/nav?app_id=10001",
+        url: "/index/loginSetting",
         method: "get",
     });
 }
@@ -27,4 +27,12 @@ export function uploadImage(formData) {
             uploadImg: true,
         },
     });
+}
+
+// 隱私協議 用戶協議
+export function getPolicy() {
+  return axios({
+    url: "/user.userapple/policy",
+    method: "get",
+  });
 }

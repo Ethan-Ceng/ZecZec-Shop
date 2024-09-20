@@ -2,21 +2,18 @@
 import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { CaretBottom, Message, Search } from "@element-plus/icons-vue";
-import { useUserStore } from "@/store";
+import { useAppStore, useUserStore } from "@/store";
 import avatarImg from "@/assets/image/avatar.png";
-import { getSite } from "@/api/common";
 
 const userStore = useUserStore();
+const appStore = useAppStore();
 
+const { setting } = storeToRefs(appStore);
 const { token, userDetail } = storeToRefs(userStore);
 
-const getSiteInfo = () => {
-    const data = getSite();
-    console.log(data);
-};
 
 onMounted(async () => {
-    await getSiteInfo();
+    await appStore.getSetting();
 });
 </script>
 
@@ -25,9 +22,9 @@ onMounted(async () => {
         <router-link clsas="inline-block order-none" to="/">
             <h1 class="hover-logo m-0 flex items-center">
                 <div class="inline-block logo-safari-fix mr-3">
-                    <svg-icon name="zeczeclog" size="28px" />
+                    <img width="30" :src="setting.login_logo" :alt="setting.login_desc" />
                 </div>
-                <svg-icon name="zeczec" size="40px" />
+                <span>{{setting.name}}</span>
             </h1>
         </router-link>
         <div

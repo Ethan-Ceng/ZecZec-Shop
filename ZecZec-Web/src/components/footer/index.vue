@@ -1,13 +1,26 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {onMounted} from "vue";
+import {storeToRefs} from "pinia";
+import {useAppStore} from "@/store";
+
+const appStore = useAppStore();
+
+const { setting } = storeToRefs(appStore);
+
+onMounted(async () => {
+  await appStore.getSetting();
+});
+</script>
 
 <template>
     <div class="border-t bg-gray-50">
         <footer
             class="max-w-xs md:max-w-5xl py-10 mx-auto flex flex-wrap px-3 justify-between"
         >
-            <section class="w-full md:w-auto pb-10 md:pb-0">
-                <!--        <img class="h-10" width="115" height="40" src="/assets/logo-3ad4cb5cba42ab70a6079fdc901edab01345e1ff.svg">-->
-                <svg-icon name="logo" size="120px" />
+            <section class="w-full md:w-auto pb-10 md:pb-0 flex items-center">
+              <img width="115" :src="setting.login_logo" :alt="setting.login_desc" />
+<!--                <svg-icon name="logo" size="120px" />-->
+              <span class="ml-4 text-2xl">{{setting.name}}</span>
             </section>
             <section>
                 <h2 class="text-sm font-semibold mb-4">幫助</h2>
