@@ -28,7 +28,7 @@ export function sendMessage(data) {
 
 /**
  * 傳送訊息
- * @param message_box_id
+ * @param data
  */
 export function getMessageBoxDetail(message_box_id) {
   return axios({

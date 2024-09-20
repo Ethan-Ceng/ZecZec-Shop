@@ -18,7 +18,7 @@ export default defineConfig({
     open: true,
     proxy: {
       "/index.php/api": {
-        target: "http://zec.localhost.com",
+        target: "https://www.genentech.icu/",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/index\.php\/api/, "/index.php/api"),
       },

@@ -1,13 +1,23 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import { CaretBottom, Message, Search } from "@element-plus/icons-vue";
 import { useUserStore } from "@/store";
 import avatarImg from "@/assets/image/avatar.png";
+import { getSite } from "@/api/common";
 
 const userStore = useUserStore();
 
 const { token, userDetail } = storeToRefs(userStore);
+
+const getSiteInfo = () => {
+    const data = getSite();
+    console.log(data);
+};
+
+onMounted(async () => {
+    await getSiteInfo();
+});
 </script>
 
 <template>
@@ -27,14 +37,29 @@ const { token, userDetail } = storeToRefs(userStore);
             <router-link
                 class="xs:mr-4 hover:text-zec-blue text-gray-700 flex-auto xs:flex-none"
                 to="/category"
-                >探索
+                >認購專區
+            </router-link>
+            <router-link
+                class="xs:mr-4 hover:text-zec-blue text-gray-700 flex-auto xs:flex-none"
+                to="#"
+                >客服
+            </router-link>
+            <router-link
+                class="xs:mr-4 hover:text-zec-blue text-gray-700 flex-auto xs:flex-none"
+                to="#"
+                >我的團隊
+            </router-link>
+            <router-link
+                class="xs:mr-4 hover:text-zec-blue text-gray-700 flex-auto xs:flex-none"
+                to="#"
+                >會員專區
             </router-link>
         </div>
 
         <div v-if="token" class="order-2 flex items-center">
             <router-link
                 class="p-2 font-bold tooltip tooltip-b inline-block text-zec-green hover:text-black xs:hidden"
-                aria-label="探索專案"
+                aria-label="認購專區"
                 to="/category"
             >
                 <el-icon class="text-lg align-middle font-bold" :size="18">
@@ -87,7 +112,10 @@ const { token, userDetail } = storeToRefs(userStore);
                             @click="$router.push('/account?type=setting')"
                             >帳號設定</el-dropdown-item
                         >
-                        <el-dropdown-item @click="$router.push('/account?type=teams')">團隊設定</el-dropdown-item>
+                        <el-dropdown-item
+                            @click="$router.push('/account?type=teams')"
+                            >團隊設定</el-dropdown-item
+                        >
                         <el-dropdown-item divided>
                             <el-button @click="userStore.logout"
                                 >登出</el-button
