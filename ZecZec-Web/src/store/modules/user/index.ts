@@ -87,6 +87,7 @@ const useUserStore = defineStore('user', {
     logoutCallBack() {
       this.resetInfo();
       clearToken();
+      window.location.href = '/login';
     },
     // Logout
     async logout() {
