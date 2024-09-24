@@ -125,10 +125,9 @@ html, body, #app {
 }
 
 .el-pager {
-
-
-  .number {
+  .number,  .more {
     font-size: 16px;
+    background: none;
 
     &:hover {
       color: #059669;
