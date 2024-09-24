@@ -4,8 +4,13 @@ import { useRouter } from "vue-router";
 import Footer from "@/components/footer/index.vue";
 import { ElMessage, FormInstance, FormRules } from "element-plus";
 import { register } from "@/api/user";
+import { storeToRefs } from "pinia";
+import { useAppStore } from "@/store";
+import get from "lodash/get";
 
 const router = useRouter();
+const appStore = useAppStore();
+const { setting } = storeToRefs(appStore);
 
 interface RuleForm {
     nickName: string;
@@ -67,7 +72,7 @@ const fetchRegister = async (params) => {
     const { code } = await register(params);
     if (code === 1) {
         ElMessage.success("註冊成功，請查閲郵件確認註冊！");
-        router.push({path: "/login"});
+        router.push({ path: "/login" });
     }
 };
 </script>
@@ -87,9 +92,16 @@ const fetchRegister = async (params) => {
                         class="inline-block mr-6 relative after:absolute after:w-px after:h-6 after:m-auto after:bg-gray-500 after:inset-y-0 after:right-0"
                     >
                         <!--            <img class="mr-6 h-16" width="92" height="32" :src="'@/assets/svg/logo.svg'">-->
-                        <svg-icon class="mr-6 h-16" name="logo" size="80px" />
+                        <!--<svg-icon class="mr-6 h-16" name="logo" size="80px" />-->
+                        <img
+                            width="200"
+                            :src="setting.logoUrl"
+                            :alt="setting.name"
+                        />
                     </h2>
-                    <h3 class="inline-block">一起讓美好的事物發生</h3>
+                    <h3 class="inline-block">
+                        {{ get(setting, "login_desc") }}
+                    </h3>
                 </a>
                 <h1 class="font-bold text-3xl mb-4">註冊</h1>
                 <h4 class="mb-8">

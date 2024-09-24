@@ -65,7 +65,6 @@ const fetchDetail = async (productId) => {
                 ) || [];
             let product_sku = data.detail.sku || [];
             product_sku = product_sku.map((item) => {
-                console.log("xx", item);
                 // 时间转换 item.cycle
                 item.cycleString = convertHoursToDH(item.cycle);
                 let specItem = spec_items.find(
@@ -84,8 +83,6 @@ const fetchDetail = async (productId) => {
 
             isLike.value = data.is_fav;
         }
-
-        console.log(tableData.value);
     } catch (err) {
         // console.warn(err)
     } finally {
@@ -244,7 +241,7 @@ onMounted(() => {
 
                         <div class="flex-auto">
                             <span class="text-gray-500"
-                                >目標 NT$
+                                >目標 $
                                 {{
                                     get(productDetail, "target_money", "0")
                                 }}</span
@@ -257,7 +254,7 @@ onMounted(() => {
                             <h3
                                 class="js-sum-raised text-2xl font-bold text-black"
                             >
-                                NT$ {{ get(productDetail, "total_money", "0") }}
+                                $ {{ get(productDetail, "total_money", "0") }}
                             </h3>
 
                             <ul class="flex">
@@ -554,21 +551,23 @@ onMounted(() => {
                         <div
                             class="text-black font-bold text-xl flex items-center"
                         >
-                            NT$ {{ get(productSku, "min_price") }} ~
+                            $ {{ get(productSku, "min_price") }} ~
                             {{ get(productSku, "max_price") }}
+                            <!--
                             <span
                                 class="inline-block text-xs font-bold text-black bg-yellow-300 leading-relaxed px-2 ml-2 rounded-sm"
                                 >任意選擇</span
                             >
+                            -->
                             <!--
                             <p class="w-full text-gray-500 font-normal text-xs">
                                 預定售價
                                 <span class="line-through"
-                                    >NT$
+                                    >$
                                     {{ get(productSku, "line_price") }}</span
                                 >
 
-                                ，現省 NT$
+                                ，現省 $
                                 {{
                                     get(productSku, "line_price") -
                                     get(productSku, "product_price")
@@ -616,6 +615,14 @@ onMounted(() => {
                                     get(productSku, "commission_percent", 0)
                                 }}%
                             </li>
+                            <li class="mr-2 -indent-4 pl-4 leading-relaxed">
+                                <el-icon size="14" color="#229f2a">
+                                    <CircleCheckFilled />
+                                </el-icon>
+                                回饋週期：{{
+                                    get(productSku, "cycleString", "")
+                                }}
+                            </li>
                         </ul>
                         <div
                             class="text-center text-xs text-gray-600 pt-4 mt-4 border-t"
@@ -623,7 +630,9 @@ onMounted(() => {
                             <el-icon size="14">
                                 <Calendar />
                             </el-icon>
-                            週期：{{ get(productSku, "cycleString", "") }}
+                            剩餘
+                            {{ get(productDetail, "availableTime", "0") }}
+                            天
                         </div>
                     </router-link>
                 </div>

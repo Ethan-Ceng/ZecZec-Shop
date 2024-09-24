@@ -71,7 +71,7 @@ const textClass = computed(() => {
 
           <div class="flex items-center space-x-2">
             <h4 class="text-sm font-semibold flex-1">
-              NT$ {{ dataSource.total_money }}
+              $ {{ dataSource.total_money }}
             </h4>
             <h4 class="text-sm font-semibold flex items-center text-zec-cyan">
               <svg-icon class="text-sm text-gray-500 leading-none align-middle mr-px" name="user"/>
@@ -98,7 +98,7 @@ const textClass = computed(() => {
 
           <div class="flex items-center space-x-2">
             <h4 class="text-sm font-semibold flex-1">
-              NT$ {{ dataSource.target_money }}
+              $ {{ dataSource.target_money }}
             </h4>
             <h4 class="text-sm font-semibold flex items-center" :class="textClass">
               <svg-icon class="text-sm text-gray-500 leading-none align-middle mr-px" name="user"/>

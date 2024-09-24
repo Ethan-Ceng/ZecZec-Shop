@@ -11,7 +11,6 @@ const appStore = useAppStore();
 const { setting } = storeToRefs(appStore);
 const { token, userDetail } = storeToRefs(userStore);
 
-
 onMounted(async () => {
     await appStore.getSetting();
 });
@@ -22,9 +21,13 @@ onMounted(async () => {
         <router-link clsas="inline-block order-none" to="/">
             <h1 class="hover-logo m-0 flex items-center">
                 <div class="inline-block logo-safari-fix mr-3">
-                    <img width="30" :src="setting.login_logo" :alt="setting.login_desc" />
+                    <img
+                        width="200"
+                        :src="setting.logoUrl"
+                        :alt="setting.name"
+                    />
                 </div>
-                <span>{{setting.name}}</span>
+                <!--<span>{{ setting.name }}</span>-->
             </h1>
         </router-link>
         <div
@@ -38,7 +41,7 @@ onMounted(async () => {
             </router-link>
             <router-link
                 class="xs:mr-4 hover:text-zec-blue text-gray-700 flex-auto xs:flex-none"
-                to="#"
+                to="/service"
                 >客服
             </router-link>
             <router-link

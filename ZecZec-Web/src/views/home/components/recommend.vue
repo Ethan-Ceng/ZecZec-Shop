@@ -60,7 +60,7 @@ onMounted(() => {
             class="flex md:flex-row-reverse items-center space-x-4 md:flex-initial px-4 md:px-0 justify-between w-full md:w-auto">
             <h3 class="leading-none text-white text-sm md:hidden">{{ get(recommend, 'type_text') }}</h3>
             <h3 class="text-white">
-              <span class="md:text-2xl font-semibold">NT$ {{ get(recommend, 'total_money') }}</span>
+              <span class="md:text-2xl font-semibold">$ {{ get(recommend, 'total_money') }}</span>
             </h3>
             <h3 class="text-white">
               <span class="font-semibold">{{ get(recommend, 'product_sales') }}</span>
@@ -95,7 +95,7 @@ onMounted(() => {
           </h3>
           <div class="flex justify-between font-bold items-center">
             <h5 class="text-sm md:text-base w-full xs:w-auto mb-1 text-zec-blue-600">
-              NT$ {{ get(item, 'total_money', '') }}
+              $ {{ get(item, 'total_money', '') }}
             </h5>
             <h5 class="text-gray-700 text-xs text-right bg-primary-200 rounded px-1 mb-1 leading-relaxed">
               {{ get(item, 'product_sales', '') }}

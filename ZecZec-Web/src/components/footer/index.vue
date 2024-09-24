@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import {onMounted} from "vue";
-import {storeToRefs} from "pinia";
-import {useAppStore} from "@/store";
+import { onMounted } from "vue";
+import { storeToRefs } from "pinia";
+import { useAppStore } from "@/store";
 
 const appStore = useAppStore();
 
 const { setting } = storeToRefs(appStore);
 
 onMounted(async () => {
-  await appStore.getSetting();
+    await appStore.getSetting();
 });
 </script>
 
@@ -18,9 +18,13 @@ onMounted(async () => {
             class="max-w-xs md:max-w-5xl py-10 mx-auto flex flex-wrap px-3 justify-between"
         >
             <section class="w-full md:w-auto pb-10 md:pb-0 flex items-center">
-              <img width="115" :src="setting.login_logo" :alt="setting.login_desc" />
-<!--                <svg-icon name="logo" size="120px" />-->
-              <span class="ml-4 text-2xl">{{setting.name}}</span>
+                <img
+                    width="200"
+                    :src="setting.logoUrl"
+                    :alt="setting.login_desc"
+                />
+                <!--                <svg-icon name="logo" size="120px" />-->
+                <!--<span class="ml-4 text-2xl">{{ setting.name }}</span>-->
             </section>
             <section>
                 <h2 class="text-sm font-semibold mb-4">幫助</h2>
@@ -64,7 +68,8 @@ onMounted(async () => {
         </footer>
         <div class="border-t">
             <p class="text-center text-gray-600 text-xs py-5">
-                © 嘖室股份有限公司
+                ©2020 - 2024 Copyright by {{ setting.name }}&REG;- All rights
+                reserved.
             </p>
         </div>
     </div>

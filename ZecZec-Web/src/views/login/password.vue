@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
-import { useUserStore } from "@/store";
+import { storeToRefs } from "pinia";
+import { useAppStore, useUserStore } from "@/store";
 import { ElMessage, FormInstance, FormRules } from "element-plus";
 import Footer from "@/components/footer/index.vue";
 import useLoading from "@/hooks/loading";
-import {forgetPassword} from "@/api/user"
+import { forgetPassword } from "@/api/user";
+import get from "lodash/get";
 
 const router = useRouter();
 
 const errorMessage = ref("");
 const { loading, setLoading } = useLoading();
 const userStore = useUserStore();
+const appStore = useAppStore();
+const { setting } = storeToRefs(appStore);
 
 interface RuleForm {
     email: string;
@@ -49,11 +53,11 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 const fetchRegister = async (params) => {
     setLoading(true);
     try {
-        const {msg} = await forgetPassword(params);
+        const { msg } = await forgetPassword(params);
         ElMessage.success(msg || "登入成功");
         await router.replace("/login");
     } catch (e) {
-        errorMessage.value = (err as Error).msg;
+        errorMessage.value = (e as Error).message;
     } finally {
         setLoading(false);
     }
@@ -75,9 +79,16 @@ const fetchRegister = async (params) => {
                         class="inline-block mr-6 relative after:absolute after:w-px after:h-6 after:m-auto after:bg-gray-500 after:inset-y-0 after:right-0"
                     >
                         <!--            <img class="mr-6 h-16" width="92" height="32" :src="'@/assets/svg/logo.svg'">-->
-                        <svg-icon class="mr-6 h-16" name="logo" size="80px" />
+                        <!--<svg-icon class="mr-6 h-16" name="logo" size="80px" />-->
+                        <img
+                            width="200"
+                            :src="setting.logoUrl"
+                            :alt="setting.name"
+                        />
                     </h2>
-                    <h3 class="inline-block">一起讓美好的事物發生</h3>
+                    <h3 class="inline-block">
+                        {{ get(setting, "login_desc") }}
+                    </h3>
                 </a>
                 <h1 class="font-bold text-3xl mb-4">忘記密碼</h1>
                 <h4 class="mb-8">

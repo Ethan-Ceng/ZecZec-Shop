@@ -37,7 +37,7 @@ import {ref} from "vue";
 
           <div class="flex items-center space-x-2">
             <h4 class="text-sm font-semibold flex-1">
-              NT$ 2,225,250
+              $ 2,225,250
             </h4>
             <h4 class="text-sm font-semibold flex items-center text-zec-green">
               <a-icon class="material-icons text-sm text-gray-500 leading-none align-middle mr-px">

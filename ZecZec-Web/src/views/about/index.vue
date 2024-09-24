@@ -55,13 +55,13 @@
           <h4 class="text-sm text-neutral-600 mb-1">
             一次性贊助總金額
           </h4>
-          <div class="text-sm font-mono">NT$ 13,106,830,009</div>
+          <div class="text-sm font-mono">$ 13,106,830,009</div>
         </li>
         <li class="mb-4">
           <h4 class="text-sm text-neutral-600 mb-1">
             訂閱性贊助總金額
           </h4>
-          <div class="text-sm font-mono">NT$ 150,301,581</div>
+          <div class="text-sm font-mono">$ 150,301,581</div>
         </li>
         <li class="mb-4">
           <h4 class="text-sm text-neutral-600 mb-1">
