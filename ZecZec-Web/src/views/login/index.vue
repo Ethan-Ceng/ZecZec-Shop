@@ -97,7 +97,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="login-wrapper">
+    <div class="flex min-h-screen items-stretch">
         <div
             class="gallery flex-1 invisible sm:visible relative overflow-hidden"
         ></div>
@@ -191,13 +191,7 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.login-wrapper {
-    height: 100vh;
-    display: flex;
-
     .gallery {
-        flex: 1;
-
         &:after {
             content: "";
             position: absolute;
@@ -212,5 +206,4 @@ onMounted(() => {
             transform: rotate(-20deg);
         }
     }
-}
 </style>

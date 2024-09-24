@@ -79,7 +79,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="login-wrapper">
+    <div class="flex min-h-screen items-stretch">
         <div
             class="gallery flex-1 invisible sm:visible relative overflow-hidden"
         ></div>
@@ -165,26 +165,19 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-.login-wrapper {
-    height: 100vh;
-    display: flex;
-
-    .gallery {
-        flex: 1;
-
-        &:after {
-            content: "";
-            position: absolute;
-            background-image: url("@/assets/image/project-gallery.jpg");
-            background-size: 1500px;
-            background-repeat: repeat;
-            background-position: center;
-            width: 300%;
-            height: 300%;
-            top: -125%;
-            left: -135%;
-            transform: rotate(-20deg);
-        }
+.gallery {
+    &:after {
+        content: "";
+        position: absolute;
+        background-image: url("@/assets/image/project-gallery.jpg");
+        background-size: 1500px;
+        background-repeat: repeat;
+        background-position: center;
+        width: 300%;
+        height: 300%;
+        top: -125%;
+        left: -135%;
+        transform: rotate(-20deg);
     }
 }
 </style>
